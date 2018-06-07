@@ -1,0 +1,23 @@
+language: node_js
+node_js: stable
+cache:
+  directories:
+  - node_modules
+install:
+- npm install
+script:
+- npx hexo generate
+after_script:
+- cd public
+- git init
+- git config user.name "ladyrick"
+- git config user.email "ladyrick@qq.com"
+- git add .
+- git commit -m "travis"
+- git push -f "https://${MY_TOKEN}@github.com/ladyrick/hexo-blog.git" master:gh-pages
+branches:
+  only:
+  - master
+env:
+  global:
+    secure: QvYDFP2awaw0H0Zi+/k+NtGYgrRWCNdz1G86o7PsnYce+6IRpy6PQ2cgNyId4eQBG8ZwcJiXF+gDuELuHdSCtlQRKYmbtiR8UM0wGvtXmC+oIcYgTVqH4mWfPG386iqpFuHAhqSM81tjUg52FM6+xobJ2ZYmrIEQRIzCx5oZzLAdvLk8A15rbwA0RgFnoCQDeGoWmJqZ3eeAcXaE5slLSF/tKNi5MHiFPAh3GAgZiAAvGx5YT+PrH4fuiAMNFhhkYHVcR1zcrDQmHYCbwg6lACiu4aeOdMtGuoOZaAV5VLZyQFgXNPzt9LiE9I9c9MWTW2X99bCKdxr2LVxG8flE7M+YsY0+BctnrS2bIIifghtKMvhSmKol2D1fdp2Kmxt4wAJRSpipEtX4IZLHxqm75UlpaxnSH4Gn3FGWn9JnzAp+NiAGikMXyen/dQG/ApltoT8W2e0mcgDGSi9cvB0mn9aRJgkHBBeFInStZrWxwekSmAOkugSgcVFllovndDVSFXnIlkvyElJdWXB0m+SAe+2f3wH4mWNk4lJI8uprFvmnsuZDbH++jks89ACtquM1rh3PyJMIz/WJXDGu3vH7/xpvhjb7EveiQP2SWgTvFsKfUuWFIBS2ggUysjtUg+9SVrCXLbUaVDMFwhfpp2+hgGYFlGlSVT0Lx0WCFFPntrU=

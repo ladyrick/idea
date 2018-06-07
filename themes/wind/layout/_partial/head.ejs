@@ -1,0 +1,58 @@
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="<%= config.author %>">
+    <meta name="description" itemprop="description" content="<% if(page.description) { %><%= page.description %><% } else if(page.excerpt){ %><%= strip_html(page.excerpt).replace(/^s*/, '').replace(/s*$/, '') %><% } else if (config.description){ %><%= config.description %><% } %>">
+    <meta name="keywords" content="<%= theme.head.keywords %><% if(page.tags && page.tags.each) { page.tags.each(function(tag) { %><%- ',' + tag.name %><% })} %>">
+
+    <!-- Page Title -->
+    <% if(page.layout=='post') { %>
+        <title><%= page.title + " | " + config.title %></title>
+    <% } else if(is_home()) { %>
+        <title><%= "Home" + " | " + config.title %></title>
+    <% } else if(is_archive()) { %>
+        <title><%= "Archive" + " | " + config.title %></title>
+    <% } else if(is_category()) { %>
+        <title><%= "Categories" + " | " + config.title %></title>
+    <% } else if(is_tag()) { %>
+        <title><%= "Tags" + " | " + config.title %></title>
+    <% } else { %>
+        <% if(page.type === 'about') { %>
+            <title><%= "About" + " | " + config.title %></title>
+        <% } else if(page.type === 'categories') { %>
+            <title><%= "Categories" + " | " + config.title %></title>        
+        <% } else if(page.type === 'gallery') { %>
+            <title><%= "Gallery" + " | " + config.title %></title>        
+        <% } else { %>
+            <title><%= config.title %></title>
+        <% } %>
+    <% } %>
+    <link rel="icon" href="<%= "/img" + theme.img.site_logo %>">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+    <%- js('js/script.js')%>
+    <%- css('css/style.css') %>
+    <% if(theme.analytics.use == 'google_analytics') { %>
+        <%- partial('_widget/google-analytics') %>
+    <% } %>
+    <style>
+        .deactiveColor{
+            color: <%= theme.color.deactive　%>;
+        }
+        .activeColor{
+            color: <%= theme.color.active　%>;
+        }
+        a:hover{
+            color: <%= theme.color.active　%>;
+        }
+        .header-btn{
+            color: <%= theme.color.deactive　%>;
+        }
+        <% if(theme.articleImgInCenter){ %>
+        .post-content img{
+            margin: 50px auto;
+        }
+        <% } %>
+    </style>
+</head>

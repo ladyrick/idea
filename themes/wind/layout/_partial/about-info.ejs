@@ -1,0 +1,21 @@
+<div class="author-info-wrapper">
+    <div class="author-info">
+        <div class="avatar-top col-xs-12 col-sm-12">
+            <div>
+               <img class="avatar" src="<%= "/img" + theme.img.avatar %>" alt="<%= config.author %>'s avatar'">
+            </div>
+            <p class="author-name"><%- config.author %></p>
+        </div>
+
+        <% if(theme.info.slogan) { %>
+            <!-- Slogan Below Avatar -->
+            <div class="avatar-down  col-xs-12 col-sm-12">
+                <p class="slogan"><i class="fa fa-quote-left"></i>&nbsp<%= theme.info.slogan %></p>
+            </div>
+        <% } %>
+
+        <% if(theme.img.avatar == "/avatar-default.png") { %>
+            <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <% } %>
+    </div>
+</div>

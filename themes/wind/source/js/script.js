@@ -7,8 +7,15 @@ $(function(){
     $(".catalog-dropdown").hide();
     $("a").focus(function(){this.blur()});
 
-    $('pre').addClass('linenums');
+    document.querySelectorAll("figure.highlight").forEach((e)=>{
+        var textContent = e.getElementsByClassName("code")[0].innerText;
+        var pre = document.createElement("pre");
+        pre.textContent = textContent;
+        e.innerHTML = "";
+        e.appendChild(pre);
+    });
     $('pre').addClass('prettyprint');
+    $('pre').addClass('linenums');
     prettyPrint();
 
     $('.archive-wrapper').find('a').addClass('activeColor');

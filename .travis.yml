@@ -9,6 +9,7 @@ script:
 - npx hexo generate
 after_script:
 - cd public
+- echo blog.ladyrick.com > CNAME
 - git init
 - git config user.name "ladyrick"
 - git config user.email "ladyrick@qq.com"

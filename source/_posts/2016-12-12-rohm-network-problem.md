@@ -57,3 +57,4 @@ netsh -c "i i" add neighbors 8 "166.111.64.1" "00-22-93-59-8e-b1"
 
 博主使用上述的绑定+装驱动的方法解决了断网问题。
 
+**相关：**{% post_link tsinghua-isatap-ipv6  清华大学校内设置isatap隧道使用ipv6方法 %}

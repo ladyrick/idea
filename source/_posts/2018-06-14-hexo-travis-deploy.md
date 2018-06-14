@@ -70,7 +70,7 @@ after_script: # 最后执行的命令
 
 branches:
   only:
-  - master # 每次构建所处理的分支
+  - master # 触发持续集成的分支
 ```
 
 这里需要注意我们使用了`${MY_TOKEN}`环境变量。这个环境变量定义了我们前面得到的`personal access token`。

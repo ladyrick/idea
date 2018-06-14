@@ -1,5 +1,5 @@
 ---
-title: hexo-travis-deploy
+title: 使用travis自动部署hexo博客到github pages
 date: 2018-06-14 13:08:14
 tags:
 ---

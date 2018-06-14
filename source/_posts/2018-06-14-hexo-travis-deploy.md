@@ -91,3 +91,7 @@ travis encrypt MY_TOKEN="274e38cdf16e254da99a190ffbd0740b5ac3dcac" --add
 这样即可将前面得到的`personal access token`赋给环境变量`MY_TOKEN`，生成加密字符串，并自动添加到`.travis.yml`文件中。
 更多关于travis加密的内容请看[travis文档](https://docs.travis-ci.com/user/encryption-keys/)。
 
+## 4. 在travis网站上启动持续集成
+最后一个步骤，很简单，打开[https://travis-ci.org/profile](https://travis-ci.org/profile)，用github账号登陆，找到你的仓库，点击按钮即可启动。
+
+这样，以后每次push变更，都会触发travis的持续集成服务，自动完成构建，并推送到gh-pages分支。

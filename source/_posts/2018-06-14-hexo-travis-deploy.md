@@ -28,3 +28,66 @@ tags:
 
 # 方法
 
+## 1. 在github中添加`personal access token`
+打开[github的设置页面](https://github.com/settings/profile)，点击左侧的`Develpoer settings`进入开发者设置页面。
+点击`Personal access tokens`，接着点击`Generate new token`。
+`Token description`一栏可以随便填，以供日后辨认即可。
+在`Select scopes`中，勾选第一个选项，也就是`repo`选项。
+最后点击`Generate token`，可以看到生成了一个很长的字符串，比如：
+```
+274e38cdf16e254da99a190ffbd0740b5ac3dcac
+```
+记下它，以备后续使用。
+
+## 2. 在仓库根目录创建travis配置文件
+打开仓库文件夹，在根目录下新建`.travis.yml`文件，其内容如下：
+```yaml
+language: node_js
+
+node_js: stable # 要安装的node版本为当前的稳定版。
+
+cache:
+  directories:
+  - node_modules # 要缓存的文件夹
+
+install:
+- npm install # install阶段执行的命令。
+
+script:
+- npx hexo generate # script阶段执行的命令
+
+after_script: # 最后执行的命令
+- cd public
+- echo blog.ladyrick.com > CNAME # github pages服务，自定义域名
+- git init
+- git config user.name "ladyrick" # 配置git参数
+- git config user.email "ladyrick@qq.com" # 配置git参数
+- git add .
+- git commit -m "travis"
+- git push -f "https://${MY_TOKEN}@github.com/ladyrick/hexo-blog.git" master:gh-pages
+# 强制push到gh-pages分支。注意这里使用了环境变量 ${MY_TOKEN}
+# 另外，注意修改仓库地址。
+
+branches:
+  only:
+  - master # 每次构建所处理的分支
+```
+
+这里需要注意我们使用了`${MY_TOKEN}`环境变量。这个环境变量定义了我们前面得到的`personal access token`。
+但是，到目前为止，travis还无法识别这个环境变量。
+
+## 3. 下载安装travis工具，定义环境变量。
+首先需要安装ruby环境。[Ruby官网](https://www.ruby-lang.org/)
+安装Ruby后，安装travis：
+```bash
+gem install travis
+```
+
+接着，切换到仓库目录，执行以下命令：
+```bash
+travis encrypt MY_TOKEN="274e38cdf16e254da99a190ffbd0740b5ac3dcac" --add
+```
+
+这样即可将前面得到的`personal access token`赋给环境变量`MY_TOKEN`，生成加密字符串，并自动添加到`.travis.yml`文件中。
+更多关于travis加密的内容请看[travis文档](https://docs.travis-ci.com/user/encryption-keys/)。
+

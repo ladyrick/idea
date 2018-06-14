@@ -83,7 +83,7 @@ branches:
 gem install travis
 ```
 
-接着，切换到仓库目录，执行以下命令：
+接着，切换到仓库目录，执行以下命令(也可以不需要切换到仓库目录，但是需要添加参数`-r owner/project`)：
 ```bash
 travis encrypt MY_TOKEN="274e38cdf16e254da99a190ffbd0740b5ac3dcac" --add
 ```

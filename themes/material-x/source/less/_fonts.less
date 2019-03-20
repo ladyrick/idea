@@ -1,0 +1,43 @@
+@font-face{
+  font-family: 'Varela Round';
+  src: url(https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts@19.1.7/VarelaRound/VarelaRound-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'Monaco';
+  src: url(https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts@19.1.7/Monaco/Monaco.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face{
+  font-family: 'Skranji';
+  src: url(https://cdn.jsdelivr.net/gh/xaoxuu/cdn-fonts@19.1.7/Skranji/Skranji-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+// 大部分文字字体
+@fontfamily_base: 'Varela Round',"Source Sans Pro","Helvetica Neue",Arial,sans-serif;
+// 代码字体
+@fontfamily_code: Consolas, Monaco, monospace, "Lucida Console", 'Source Code Pro', Helvetica, Arial, sans-serif, 'Ubuntu';
+// LOGO字体
+@fontfamily_logo: Skranji, @fontfamily_base;
+
+
+// 字号
+// base
+@fontsize_base:   16px;
+@fontsize_small:  @fontsize_base * 0.875;
+@fontsize_footnote:  @fontsize_base * 0.7;
+@lineheight_base: 1.7;
+// title
+@fontsize_h1: @fontsize_base * 1.5;
+@fontsize_h2: @fontsize_base * 1.4;
+@fontsize_h3: @fontsize_base * 1.2;
+@fontsize_h4: @fontsize_base * 1.1;
+@fontsize_h5: @fontsize_base * 1;
+@fontsize_h6: @fontsize_small;
+// article
+@fontsize_article_title: @fontsize_h1 * 1.2;
+@fontsize_article_title_phone: @fontsize_h2;

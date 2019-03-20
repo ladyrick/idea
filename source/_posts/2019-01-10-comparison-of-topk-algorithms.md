@@ -17,6 +17,9 @@ tags:
 这个算法的时间复杂度为O(nlogk)。
 
 
+<!--more-->
+
+
 但是，我发现，C++ stl 中关于堆的函数有，`make_heap`，`push_heap`，`pop_heap`，`sort_heap`，`is_heap`。
 
 这其中，貌似并没有提供“替换堆顶元素，调整堆”的函数。要实现这个效果，可以通过先`pop_heap`，再`push_heap`来实现。

@@ -10,6 +10,7 @@ script:
 after_script:
 - cd public
 - echo blog.ladyrick.com > CNAME
+- echo -e '# hexo-blog\n\nThis branch is generated and maintained by [Travis-CI](https://travis-ci.org/) automaticlly.\n\nSee ["How to deploy Hexo blog to github pages automaticlly"](https://blog.ladyrick.com/p/2018-06-14-hexo-travis-deploy/) for more.' > README.md
 - git init
 - git config user.name "ladyrick"
 - git config user.email "ladyrick@qq.com"

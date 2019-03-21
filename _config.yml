@@ -84,6 +84,8 @@ deploy:
 social:
   - icon: fab fa-github
     url: https://github.com/ladyrick
+  - icon: far fa-envelope
+    url: mailto://ladyrick@qq.com
   - icon: fas fa-blog
     url: /
 

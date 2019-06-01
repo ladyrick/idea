@@ -6,7 +6,7 @@ tags:
 
 之前的博客一直用的是wordpress，因为hexo的话，每次还得手动运行`hexo generate`，然后把public文件夹复制到腾讯云上。如果是使用github pages的话，也需要每次把public文件夹push上去。就感觉很繁琐，觉得还不如用wordpress，在线写文章。
 
-后来，越来越觉得在线些文章是个很蛋疼的事情。而且，wordpress使用了数据库来存储文章，就感觉很不优雅。于是开始考虑换回hexo。
+后来，越来越觉得在线写文章是个很蛋疼的事情。而且，wordpress使用了数据库来存储文章，就感觉很不优雅。于是开始考虑换回hexo。
 
 <!--more-->
 

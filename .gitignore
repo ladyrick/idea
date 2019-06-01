@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 package-lock.json
+_vnote.json
+_v_recycle_bin

@@ -74,64 +74,9 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: material-x
+theme: wind
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
-
-social:
-  - icon: fab fa-github
-    url: https://github.com/ladyrick
-  - icon: far fa-envelope
-    url: mailto://ladyrick@qq.com
-  - icon: fas fa-blog
-    url: /
-
-menu:
-  - name: 主页
-    icon: fas fa-home
-    url: /
-  - name: 博客
-    icon: fas fa-blog
-    url: /
-  - name: 归档
-    icon: fas fa-archive
-    url: archives/
-  - name: 朋友
-    icon: fas fa-users
-    url: friends/
-
-# 侧边栏小部件
-widgets:
-  - widget: author
-    avatar: https://cdn.jsdelivr.net/gh/ladyrick/hexo-blog@master/source/images/avatar.jpg
-    # jinrishici: 柳暗花明又一村
-    social: true
-  - widget: toc
-  - widget: category
-  - widget: tagcloud
-  - widget: list
-    icon: fas fa-link
-    title: 特别链接
-    rows:
-      - name: 关于我 / 留言板
-        icon: fas fa-comment-dots
-        url: /about
-  - widget: related_posts
-
-footer: "自豪地使用**[Hexo](https://hexo.io)**"
-
-# valine
-valine:
-  enable: true # 如果你想用Valine评论系统，请设置enable为true
-  app_id: jY92BdUydn3wW3SjDwAGBVTH-gzGzoHsz # 必填
-  app_key: c2l6ai1qbxg7QLmReu2GJHz2 # 必填
-  guest_info: nick,mail,link #valine comment header info
-  placeholder: 快来评论吧~ # valine comment input placeholder(like: Please leave your footprints )
-  avatar: robohash # gravatar style https://valine.js.org/avatar
-  pageSize: 10 # comment list page size
-  verify: false # valine verify code (true/false)
-  notify: false # valine mail notify (true/false)
-  lang: zh-cn

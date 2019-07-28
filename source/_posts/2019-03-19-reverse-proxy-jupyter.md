@@ -29,7 +29,7 @@ jupyter notebook password
 
 这会在`~/.jupyter/jupyter_notebook_config.json`文件中写入密码的哈希值，这样以后在新浏览器登陆时，就需要输入密码。
 
-![](/images/2019-03-19_jupyter_passwork.png)
+![](./2019-03-19-reverse-proxy-jupyter/jupyter_passwork.png)
 
 {% asset_img /images/2019-03-19_jupyter_passwork.png %}
 

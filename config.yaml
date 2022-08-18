@@ -76,7 +76,7 @@ params:
       url: 'index.xml'
 
   editPost:
-    URL: 'https://github.com/ladyrick/idea/tree/site/content'
+    URL: 'https://github.com/ladyrick/idea/blob/main/content'
     Text: '帮助改进' # edit text
     appendFilePath: true # to append file path to Edit link
 

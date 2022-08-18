@@ -1,0 +1,49 @@
+name: Deploy to gh-pages
+
+on:
+  push:
+    paths-ignore:
+      - "LICENSE"
+      - "README.md"
+    branches:
+      - main
+  workflow_dispatch:
+    # manual run
+    inputs:
+      hugoVersion:
+        description: "Hugo Version"
+        required: false
+        default: "0.101.0"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: "0.101.0"
+    steps:
+      - name: Check version
+        if: ${{ github.event.inputs.hugoVersion }}
+        run: export HUGO_VERSION="${{ github.event.inputs.hugoVersion }}"
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: Get Theme
+        run: git submodule update --init --recursive && git submodule update --remote --merge
+      - name: Build with Hugo
+        run: hugo --buildDrafts --gc --verbose
+      - name: push to branch gh-pages
+        run: |
+          cd public
+          echo idea.ladyrick.com > CNAME
+          git init -b gh-pages
+          git config user.name "ladyrick"
+          git config user.email "ladyrick@qq.com"
+          git add .
+          git commit -m "hugo"
+          git remote add origin 'https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ladyrick/idea.git'
+          git push --set-upstream origin gh-pages -f

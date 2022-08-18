@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/ladyrick/hexo-blog.svg?branch=master)](https://travis-ci.org/ladyrick/hexo-blog)
+# [LadyRick's idea](https://idea.ladyrick.com)

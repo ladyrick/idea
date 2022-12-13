@@ -3,6 +3,8 @@ title: LadyRick's idea
 paginate: 10
 theme: hugo-PaperMod
 
+timeZone: Asia/Shanghai
+
 enableInlineShortcodes: true
 enableRobotsTXT: true
 buildDrafts: false

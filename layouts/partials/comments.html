@@ -1,17 +1,30 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script id="load-utterance">
+    (() => {
+        const getTheme = () => document.body.className.split(" ").includes("dark") ? "github-dark" : "github-light";
 
-<div id="gitalk-container"></div>
-<script>
-    const gitalk = new Gitalk({
-        clientID: '0fec92c94ddd66920d63',
-        clientSecret: '41faaf0b67785abc53f63d4b60594c48a737450c',
-        repo: 'idea',      // The repository of store comments,
-        owner: 'ladyrick',
-        admin: ['ladyrick'],
-        id: location.pathname,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    })
+        const script = document.createElement("script");
+        script.src = "https://utteranc.es/client.js";
+        script.setAttribute("theme", getTheme());
+        script.setAttribute("repo", "ladyrick/idea");
+        script.setAttribute("issue-term", "title");
+        script.setAttribute("crossorigin", "anonymous");
 
-    gitalk.render('gitalk-container');
+        const curElement = document.querySelector("#load-utterance");
+        curElement.parentElement.insertBefore(script, curElement);
+
+        const setUtterancesTheme = () => {
+            const iframe = document.querySelector(".utterances-frame");
+            if (iframe) {
+                const nextTheme = getTheme() === "github-dark" ? "github-light" : "github-dark";
+                const message = {
+                    type: "set-theme",
+                    theme: nextTheme,
+                };
+                iframe.contentWindow.postMessage(message, "https://utteranc.es");
+            }
+        }
+
+        const themeButton = document.querySelector("#theme-toggle");
+        themeButton.addEventListener("click", setUtterancesTheme, false);
+    })();
 </script>

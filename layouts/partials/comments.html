@@ -1,30 +1,32 @@
 <script id="load-utterance">
-    (() => {
-        const getTheme = () => document.body.className.split(" ").includes("dark") ? "github-dark" : "github-light";
+  (() => {
+    const getTheme = () => (document.body.className.split(' ').includes('dark') ? 'github-dark' : 'github-light');
 
-        const script = document.createElement("script");
-        script.src = "https://utteranc.es/client.js";
-        script.setAttribute("theme", getTheme());
-        script.setAttribute("repo", "ladyrick/idea");
-        script.setAttribute("issue-term", "title");
-        script.setAttribute("crossorigin", "anonymous");
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.setAttribute('theme', getTheme());
+    script.setAttribute('repo', 'ladyrick/idea');
+    script.setAttribute('issue-term', 'title');
+    script.setAttribute('crossorigin', 'anonymous');
+    script.setAttribute('url', decodeURIComponent(location.href).replace(location.origin, 'https://idea.ladyrick.com'));
+    script.setAttribute('origin', 'https://idea.ladyrick.com');
 
-        const curElement = document.querySelector("#load-utterance");
-        curElement.parentElement.insertBefore(script, curElement);
+    const curElement = document.querySelector('#load-utterance');
+    curElement.parentElement.insertBefore(script, curElement);
 
-        const setUtterancesTheme = () => {
-            const iframe = document.querySelector(".utterances-frame");
-            if (iframe) {
-                const nextTheme = getTheme() === "github-dark" ? "github-light" : "github-dark";
-                const message = {
-                    type: "set-theme",
-                    theme: nextTheme,
-                };
-                iframe.contentWindow.postMessage(message, "https://utteranc.es");
-            }
-        }
+    const setUtterancesTheme = () => {
+      const iframe = document.querySelector('.utterances-frame');
+      if (iframe) {
+        const nextTheme = getTheme() === 'github-dark' ? 'github-light' : 'github-dark';
+        const message = {
+          type: 'set-theme',
+          theme: nextTheme,
+        };
+        iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+      }
+    };
 
-        const themeButton = document.querySelector("#theme-toggle");
-        themeButton.addEventListener("click", setUtterancesTheme, false);
-    })();
+    const themeButton = document.querySelector('#theme-toggle');
+    themeButton.addEventListener('click', setUtterancesTheme, false);
+  })();
 </script>

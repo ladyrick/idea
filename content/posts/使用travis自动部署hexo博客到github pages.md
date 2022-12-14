@@ -29,11 +29,11 @@ tags:
 # 方法
 
 ## 1. 在github中添加`personal access token`
-打开[github的设置页面](https://github.com/settings/profile)，点击左侧的`Develpoer settings`进入开发者设置页面。
-点击`Personal access tokens`，接着点击`Generate new token`。
-`Token description`一栏可以随便填，以供日后辨认即可。
-在`Select scopes`中，勾选第一个选项，也就是`repo`选项。
-最后点击`Generate token`，可以看到生成了一个很长的字符串，比如：
+打开[github的设置页面](https://github.com/settings/profile)，点击左侧的 **Develpoer settings** 进入开发者设置页面。
+点击 **Personal access tokens**，接着点击 **Generate new token**。
+**Token description** 一栏可以随便填，以供日后辨认即可。
+在 **Select scopes** 中，勾选第一个选项，也就是 **repo** 选项。
+最后点击 **Generate token**，可以看到生成了一个很长的字符串，比如：
 ```
 274e38cdf16e254da99a190ffbd0740b5ac3dcac
 ```
@@ -95,3 +95,9 @@ travis encrypt MY_TOKEN="274e38cdf16e254da99a190ffbd0740b5ac3dcac" --add
 最后一个步骤，很简单，打开[https://travis-ci.org/profile](https://travis-ci.org/profile)，用github账号登陆，找到你的仓库，点击按钮即可启动。
 
 这样，以后每次push变更，都会触发travis的持续集成服务，自动完成构建，并推送到gh-pages分支。
+
+# 更新（2022-12）
+
+现在我用的是 hugo 代替 hexo，速度更快。用 github actions 替换 travis，不再依赖第三方工具，更安全。
+
+可以参考本博客的 github 页面：[https://github.com/ladyrick/idea](https://github.com/ladyrick/idea)。

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>bash on LadyRick&#39;s idea</title>
+    <link>https://idea.ladyrick.com/tags/bash/</link>
+    <description>Recent content in bash on LadyRick&#39;s idea</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 14 Dec 2022 01:10:28 +0800</lastBuildDate><atom:link href="https://idea.ladyrick.com/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BASH IFS 环境变量用法总结</title>
+      <link>https://idea.ladyrick.com/posts/bash-ifs-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 14 Dec 2022 01:10:28 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/bash-ifs-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>之前从网上找了很多关于 IFS 的二手资料，每次用每次都得再看一遍，理解还是不够透彻。最近对照着 man bash ，终于把这个 IFS 搞清楚了。
+IFS 的三种作用 IFS 其实只在 3 个地方发挥作用：
+用于扩展带双引号的 &amp;quot;$*&amp;quot; 用于不带双引号的变量扩展 / 子命令扩展 / 算数扩展 用于在内建命令 read 中进行断词 可以看到，其实只有 bash 本身和 read 命令会用到 IFS 这个环境变量。所以，除了
+IFS=xxx bash -c &amp;#34;xxx&amp;#34; 和
+IFS=xxx read a b c 之外，任何的 IFS=xxx 临时环境变量都是不会起到任何作用的。
+辅助工具 先写一个小的辅助程序，名为 argsecho，用于直观展示所有参数列表。
+import sys for ind, arg in enumerate(sys.argv[1:], 1): print(&amp;#34;${}: {}&amp;#34;.format(ind, arg), flush=True) 1. 用于扩展带双引号的 $* 对于一个数组
+arr=(1 2 3 4 5) &amp;quot;${arr[@]}&amp;quot; 会展开为 &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot; &amp;quot;4&amp;quot; &amp;quot;5&amp;quot; ，是最忠实于原数组的展开方式。通常用于将参数列表原封不动传递给子命令。展开的过程中不涉及 IFS。</description>
+    </item>
+    
+  </channel>
+</rss>

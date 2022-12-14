@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LadyRick&#39;s idea</title>
+    <link>https://idea.ladyrick.com/</link>
+    <description>Recent content on LadyRick&#39;s idea</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 14 Dec 2022 01:10:28 +0800</lastBuildDate><atom:link href="https://idea.ladyrick.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BASH IFS 环境变量用法总结</title>
+      <link>https://idea.ladyrick.com/posts/bash-ifs-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 14 Dec 2022 01:10:28 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/bash-ifs-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>之前从网上找了很多关于 IFS 的二手资料，每次用每次都得再看一遍，理解还是不够透彻。最近对照着 man bash ，终于把这个 IFS 搞清楚了。
+IFS 的三种作用 IFS 其实只在 3 个地方发挥作用：
+用于扩展带双引号的 &amp;quot;$*&amp;quot; 用于不带双引号的变量扩展 / 子命令扩展 / 算数扩展 用于在内建命令 read 中进行断词 可以看到，其实只有 bash 本身和 read 命令会用到 IFS 这个环境变量。所以，除了
+IFS=xxx bash -c &amp;#34;xxx&amp;#34; 和
+IFS=xxx read a b c 之外，任何的 IFS=xxx 临时环境变量都是不会起到任何作用的。
+辅助工具 先写一个小的辅助程序，名为 argsecho，用于直观展示所有参数列表。
+import sys for ind, arg in enumerate(sys.argv[1:], 1): print(&amp;#34;${}: {}&amp;#34;.format(ind, arg), flush=True) 1. 用于扩展带双引号的 $* 对于一个数组
+arr=(1 2 3 4 5) &amp;quot;${arr[@]}&amp;quot; 会展开为 &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot; &amp;quot;4&amp;quot; &amp;quot;5&amp;quot; ，是最忠实于原数组的展开方式。通常用于将参数列表原封不动传递给子命令。展开的过程中不涉及 IFS。</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; float数据在内存中的表示形式</title>
+      <link>https://idea.ladyrick.com/posts/c&#43;&#43;-float%E6%95%B0%E6%8D%AE%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F/</link>
+      <pubDate>Sun, 28 Jul 2019 17:21:41 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/c&#43;&#43;-float%E6%95%B0%E6%8D%AE%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%BD%A2%E5%BC%8F/</guid>
+      <description>&lt;p&gt;本文介绍了浮点数的表示方法，以及直观验证。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在服务器上部署jupyter供自己使用</title>
+      <link>https://idea.ladyrick.com/posts/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter%E4%BE%9B%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 19 Mar 2019 17:16:29 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E9%83%A8%E7%BD%B2jupyter%E4%BE%9B%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;需求&#34;&gt;需求&lt;/h1&gt;
+&lt;p&gt;为了更方便地学习python，就寻思着在腾讯云服务器上部署一个jupyter服务。
+但是，如果只是起一个&lt;code&gt;jupyter notebook&lt;/code&gt;在后台运行，那我就必须访问&lt;code&gt;ladyrick.com:8888&lt;/code&gt;来访问（假设端口为8888）。
+这是非常丑陋的。
+我希望可以通过访问&lt;code&gt;jupyter.ladyrick.com&lt;/code&gt;来访问我的jupyter服务。&lt;/p&gt;
+&lt;p&gt;另外，为了防止别人访问，只为我一个人服务，需要给jupyter服务设置密码。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>数组前k小元素的各种方法对比</title>
+      <link>https://idea.ladyrick.com/posts/%E6%95%B0%E7%BB%84%E5%89%8Dk%E5%B0%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/</link>
+      <pubDate>Thu, 10 Jan 2019 14:46:25 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/%E6%95%B0%E7%BB%84%E5%89%8Dk%E5%B0%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%90%84%E7%A7%8D%E6%96%B9%E6%B3%95%E5%AF%B9%E6%AF%94/</guid>
+      <description>&lt;h1 id=&#34;引子&#34;&gt;引子&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;给定一个数组，寻找出数组中前k小的元素。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于这个经典问题，我之前一直只知道可以用&lt;strong&gt;堆&lt;/strong&gt;来解决。&lt;/p&gt;
+&lt;p&gt;构造一个大根堆，然后遍历所有数据，如果数据小于堆顶元素，就替换堆顶元素，调整堆。&lt;/p&gt;
+&lt;p&gt;这样最后堆中的元素就是原数组中前k小的元素。&lt;/p&gt;
+&lt;p&gt;这个算法的时间复杂度为O(nlogk)。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43; Puzzle</title>
+      <link>https://idea.ladyrick.com/posts/c&#43;&#43;-puzzle/</link>
+      <pubDate>Sun, 24 Jun 2018 22:07:19 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/c&#43;&#43;-puzzle/</guid>
+      <description>&lt;p&gt;本文搜集了一些有趣的 C++的题目，有些题目令人大跌眼镜。来看看！&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用travis自动部署hexo博客到github pages</title>
+      <link>https://idea.ladyrick.com/posts/%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/</link>
+      <pubDate>Thu, 14 Jun 2018 13:08:14 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/%E4%BD%BF%E7%94%A8travis%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2hexo%E5%8D%9A%E5%AE%A2%E5%88%B0github-pages/</guid>
+      <description>&lt;p&gt;之前的博客一直用的是wordpress，因为hexo的话，每次还得手动运行&lt;code&gt;hexo generate&lt;/code&gt;，然后把public文件夹复制到腾讯云上。如果是使用github pages的话，也需要每次把public文件夹push上去。就感觉很繁琐，觉得还不如用wordpress，在线写文章。&lt;/p&gt;
+&lt;p&gt;后来，越来越觉得在线写文章是个很蛋疼的事情。而且，wordpress使用了数据库来存储文章，就感觉很不优雅。于是开始考虑换回hexo。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>清华大学校内设置isatap隧道使用ipv6方法</title>
+      <link>https://idea.ladyrick.com/posts/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%86%85%E8%AE%BE%E7%BD%AEisatap%E9%9A%A7%E9%81%93%E4%BD%BF%E7%94%A8ipv6%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Wed, 16 May 2018 13:58:02 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6%E6%A0%A1%E5%86%85%E8%AE%BE%E7%BD%AEisatap%E9%9A%A7%E9%81%93%E4%BD%BF%E7%94%A8ipv6%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;本文介绍了在清华大学校内使用ipv6的方法，包括windows系统和ubuntu系统。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;：explicit关键字</title>
+      <link>https://idea.ladyrick.com/posts/2017-11-09-c&#43;&#43;-explicit/</link>
+      <pubDate>Thu, 09 Nov 2017 16:14:33 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/2017-11-09-c&#43;&#43;-explicit/</guid>
+      <description>&lt;p&gt;explicit关键字作用于类的构造函数。一旦类的构造函数声明了explicit关键字，构造函数就必须使用显示的方式调用。这样做可以防止构造函数被不知不觉地，莫名其妙地调用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Windows如何自定文件夹名称</title>
+      <link>https://idea.ladyrick.com/posts/windows%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0/</link>
+      <pubDate>Sun, 17 Sep 2017 13:30:47 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/windows%E5%A6%82%E4%BD%95%E8%87%AA%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E7%A7%B0/</guid>
+      <description>&lt;p&gt;比如，桌面文件夹，其实真实的路径是&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;C:\Users\用户名\Desktop
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;而不是桌面。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>罗姆楼网络问题解决方案</title>
+      <link>https://idea.ladyrick.com/posts/%E7%BD%97%E5%A7%86%E6%A5%BC%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 12 Dec 2016 11:06:34 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/posts/%E7%BD%97%E5%A7%86%E6%A5%BC%E7%BD%91%E7%BB%9C%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;p&gt;罗姆楼的网络问题真的是困扰了我很久。
+从进入实验室开始，就不停断网……&lt;/p&gt;
+&lt;p&gt;一开始怀疑是网卡的问题，还自费买了个网卡，结果证明不是网卡的问题。
+最神奇的是，使用 win7 好好的，一用 win10，不到三分钟铁定断网。
+这导致整个实验室都是用 win7 的……真心醉了。&lt;/p&gt;</description>
+    </item>
+    
+    
+    
+  </channel>
+</rss>

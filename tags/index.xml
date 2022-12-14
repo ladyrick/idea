@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on LadyRick&#39;s idea</title>
+    <link>https://idea.ladyrick.com/tags/</link>
+    <description>Recent content in Tags on LadyRick&#39;s idea</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 14 Dec 2022 01:10:28 +0800</lastBuildDate><atom:link href="https://idea.ladyrick.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bash</title>
+      <link>https://idea.ladyrick.com/tags/bash/</link>
+      <pubDate>Wed, 14 Dec 2022 01:10:28 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>闲扯</title>
+      <link>https://idea.ladyrick.com/tags/%E9%97%B2%E6%89%AF/</link>
+      <pubDate>Mon, 12 Dec 2016 11:06:34 +0800</pubDate>
+      
+      <guid>https://idea.ladyrick.com/tags/%E9%97%B2%E6%89%AF/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
